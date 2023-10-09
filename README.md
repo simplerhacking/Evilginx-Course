@@ -1,5 +1,5 @@
-# Our New Evilginx Course Has Been Released!
-## Download our course today: www.simplerhacking.com/evilginx-course
+# Our New Evilginx3 Course Has Been Released!
+## Download our course today: [www.simplerhacking.com/evilginx-course](https://www.simplerhacking.com/courses/evilginx-course)
 Learn to bypass 2FA with the latest version Evilginx, send verified campaigns, capture credentials, record & analyze campaign results.
 
 https://github.com/simplerhacking/Evilginx-Course/assets/141525149/3bf788e5-d7df-48fb-9820-00520185cfd7
