@@ -2,9 +2,9 @@
 ## Download our course today: [www.simplerhacking.com/evilginx-course](https://www.simplerhacking.com/courses/evilginx-course)
 Learn to bypass 2FA with the latest version Evilginx, send verified campaigns, capture credentials, record & analyze campaign results.
 
-https://github.com/simplerhacking/Evilginx-Course/assets/141525149/3bf788e5-d7df-48fb-9820-00520185cfd7
+![Evilginx Pro Course Preview](https://github.com/simplerhacking/Phishlet-Creator/assets/141525149/66bbf548-b340-4c91-8694-1f77209a5edb)
 
-https://github.com/simplerhacking/Evilginx3-Tutorial/assets/141525149/fa7dcbf0-13cb-4cfc-b7a8-f944d824b0c2
+![image-49](https://github.com/simplerhacking/Evilginx-Course/assets/141525149/a16b6453-eb92-474b-a8f7-b9dc9ef243e1)
 
 ![SMTP-or-API-Email-Sending Evilginx3 ad](https://github.com/simplerhacking/Evilginx3-Tutorial/assets/141525149/6b5e4061-978f-488a-aa0e-53cb505f1022)
 
